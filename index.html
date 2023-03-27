@@ -22,6 +22,10 @@
         .flex-container {
             display: flex;
             background-color: DodgerBlue;
+            text-align: center;
+            /* align-items: center; */
+            font-weight: bold;
+            justify-content: center;
         }
 
         .flex-container>div {
@@ -29,6 +33,12 @@
             margin: 10px;
             padding: 20px;
             font-size: 30px;
+            text-shadow: 1px 1px 1px #333;
+            /* flex: 2; */
+            position: relative;
+            width: 200px;
+            height: 200px;
+            /* opacity: 0.8; */
         }
     </style>
 </head>
@@ -99,29 +109,51 @@
         </script>
     <script src="js/jquery.js"></script>
     <script>
-        //bebek
+
         $("document").ready(function () {
+            var currentAudio = null;
+
+            // Hewan Ternak
+            // bebek
             $("div.bebek").click(function () {
+                if (currentAudio) {
+                    currentAudio.pause();
+                }
+
                 $(this).css({
                     background: "url('images/bebek.jpg')",
                     'background-position': 'center',
                     'background-size': 'cover',
                     'background-repeat': 'no-repeat',
                     'background-position-y': '-5px',
-                });
-            });
-            $("div.bebek").click(function () {
-                $("<audio></audio>").attr({
-                    'src': 'audio/suara-bebek.mp3',
-                    'volume': 0.4,
-                    'autoplay': 'autoplay'
-                }).appendTo("div");
-            });
-        });
 
-        //kambing
-        $("document").ready(function () {
+                });
+
+                currentAudio = $("<audio></audio>")
+                    .on("ended", function () {
+                        $(this).remove();
+                        currentAudio = null;
+                    })
+                    .attr({
+                        src: "audio/suara-bebek.mp3",
+                        volume: 0.5,
+                        autoplay: "autoplay",
+                    })
+                    .appendTo("body")[0];
+            });
+
+            // $("div.bebek").mouseleave(function () {
+            // 	$(this).css({
+            // 	background: "greenyellow",
+            // 	});
+            // });
+
+            // kambing
             $("div.kambing").click(function () {
+                if (currentAudio) {
+                    currentAudio.pause();
+                }
+
                 $(this).css({
                     background: "url('images/kambing.jpeg')",
                     'background-position': 'center',
@@ -129,19 +161,26 @@
                     'background-repeat': 'no-repeat',
                     'background-position-y': '-5px',
                 });
-            });
-            $("div.kambing").click(function () {
-                $("<audio></audio>").attr({
-                    'src': 'audio/suara-kambing.mp3',
-                    'volume': 0.4,
-                    'autoplay': 'autoplay'
-                }).appendTo("div");
-            });
-        });
 
-        //sapi
-        $("document").ready(function () {
+                currentAudio = $("<audio></audio>")
+                    .on("ended", function () {
+                        $(this).remove();
+                        currentAudio = null;
+                    })
+                    .attr({
+                        src: "audio/suara-kambing.mp3",
+                        volume: 0.5,
+                        autoplay: "autoplay",
+                    })
+                    .appendTo("body")[0];
+            });
+
+            // sapi
             $("div.sapi").click(function () {
+                if (currentAudio) {
+                    currentAudio.pause();
+                }
+
                 $(this).css({
                     background: "url('images/sapi.jpg')",
                     'background-position': 'center',
@@ -149,79 +188,115 @@
                     'background-repeat': 'no-repeat',
                     'background-position-y': '-5px',
                 });
-            });
-            $("div.sapi").click(function () {
-                $("<audio></audio>").attr({
-                    'src': 'audio/suara-sapi.mp3',
-                    'volume': 0.4,
-                    'autoplay': 'autoplay'
-                }).appendTo("div");
-            });
-        });
 
-        //kucing
-        $("document").ready(function () {
-            $("div.kucing").click(function () {
-                $(this).css({
-                    background: "url('images/kucing.jpg')",
-                    'background-position': 'center',
-                    'background-size': 'cover',
-                    'background-repeat': 'no-repeat',
-                    'background-position-y': '-5px',
-                });
+                currentAudio = $("<audio></audio>")
+                    .on("ended", function () {
+                        $(this).remove();
+                        currentAudio = null;
+                    })
+                    .attr({
+                        src: "audio/suara-sapi.mp3",
+                        volume: 0.5,
+                        autoplay: "autoplay",
+                    })
+                    .appendTo("body")[0];
             });
-            $("div.kucing").click(function () {
-                $("<audio></audio>").attr({
-                    'src': 'audio/suara-kucing.mp3',
-                    'volume': 0.4,
-                    'autoplay': 'autoplay'
-                }).appendTo("div");
-            });
-        });
 
-        //anjing
-        $("document").ready(function () {
+            // Hewan Peliharaan
+            // anjing
             $("div.anjing").click(function () {
+                if (currentAudio) {
+                    currentAudio.pause();
+                }
+
                 $(this).css({
                     background: "url('images/ajg.jpg')",
                     'background-position': 'center',
                     'background-size': 'cover',
                     'background-repeat': 'no-repeat',
                     'background-position-y': '-5px',
-                });
-            });
-            $("div.anjing").click(function () {
-                $("<audio></audio>").attr({
-                    'src': 'audio/suara-anjing.mp3',
-                    'volume': 0.4,
-                    'autoplay': 'autoplay'
-                }).appendTo("div");
-            });
-        });
 
-        //kuda
-        $("document").ready(function () {
+                });
+
+                currentAudio = $("<audio></audio>")
+                    .on("ended", function () {
+                        $(this).remove();
+                        currentAudio = null;
+                    })
+                    .attr({
+                        src: "audio/suara-anjing.mp3",
+                        volume: 0.5,
+                        autoplay: "autoplay",
+                    })
+                    .appendTo("body")[0];
+            });
+
+
+            // kucing
+            $("div.kucing").click(function () {
+                if (currentAudio) {
+                    currentAudio.pause();
+                }
+
+                $(this).css({
+                    background: "url('images/kucing.jpg')",
+                    'background-position': 'center',
+                    'background-size': 'cover',
+                    'background-repeat': 'no-repeat',
+                    'background-position-y': '-5px',
+                    'background-position-x': '-10px',
+                });
+
+                currentAudio = $("<audio></audio>")
+                    .on("ended", function () {
+                        $(this).remove();
+                        currentAudio = null;
+                    })
+                    .attr({
+                        src: "audio/suara-kucing.mp3",
+                        volume: 0.5,
+                        autoplay: "autoplay",
+                    })
+                    .appendTo("body")[0];
+            });
+
+
+
+            // kuda
             $("div.kuda").click(function () {
+                if (currentAudio) {
+                    currentAudio.pause();
+                }
+
                 $(this).css({
                     background: "url('images/kuda.jpg')",
                     'background-position': 'center',
                     'background-size': 'cover',
                     'background-repeat': 'no-repeat',
                     'background-position-y': '-2px',
+                    'background-position-x': '-80px',
                 });
-            });
-            $("div.kuda").click(function () {
-                $("<audio></audio>").attr({
-                    'src': 'audio/suara-kuda.mp3',
-                    'volume': 0.4,
-                    'autoplay': 'autoplay'
-                }).appendTo("div");
-            });
-        });
 
-        //beruang
-        $("document").ready(function () {
+                currentAudio = $("<audio></audio>")
+                    .on("ended", function () {
+                        $(this).remove();
+                        currentAudio = null;
+                    })
+                    .attr({
+                        src: "audio/suara-kuda.mp3",
+                        volume: 0.5,
+                        autoplay: "autoplay",
+                    })
+                    .appendTo("body")[0];
+            });
+
+            // Hewan Buas
+            // beruang
             $("div.beruang").click(function () {
+                if (currentAudio) {
+                    currentAudio.pause();
+                }
+
                 $(this).css({
                     background: "url('images/beruang.jpg')",
                     'background-position': 'center',
@@ -229,19 +304,26 @@
                     'background-repeat': 'no-repeat',
                     'background-position-y': '-5px',
                 });
-            });
-            $("div.beruang").click(function () {
-                $("<audio></audio>").attr({
-                    'src': 'audio/suara-beruang.mp3',
-                    'volume': 0.4,
-                    'autoplay': 'autoplay'
-                }).appendTo("div");
-            });
-        });
 
-        //serigala
-        $("document").ready(function () {
+                currentAudio = $("<audio></audio>")
+                    .on("ended", function () {
+                        $(this).remove();
+                        currentAudio = null;
+                    })
+                    .attr({
+                        src: "audio/suara-beruang.mp3",
+                        volume: 0.5,
+                        autoplay: "autoplay",
+                    })
+                    .appendTo("body")[0];
+            });
+
+            // Srigala
             $("div.serigala").click(function () {
+                if (currentAudio) {
+                    currentAudio.pause();
+                }
+
                 $(this).css({
                     background: "url('images/serigala.jpg')",
                     'background-position': 'center',
@@ -249,19 +331,26 @@
                     'background-repeat': 'no-repeat',
                     'background-position-y': '-5px',
                 });
-            });
-            $("div.serigala").click(function () {
-                $("<audio></audio>").attr({
-                    'src': 'audio/suara-serigala.mp3',
-                    'volume': 0.4,
-                    'autoplay': 'autoplay'
-                }).appendTo("div");
-            });
-        });
 
-        //harimau
-        $("document").ready(function () {
+                currentAudio = $("<audio></audio>")
+                    .on("ended", function () {
+                        $(this).remove();
+                        currentAudio = null;
+                    })
+                    .attr({
+                        src: "audio/suara-serigala.mp3",
+                        volume: 0.5,
+                        autoplay: "autoplay",
+                    })
+                    .appendTo("body")[0];
+            });
+
+            //harimau
             $("div.harimau").click(function () {
+                if (currentAudio) {
+                    currentAudio.pause();
+                }
+
                 $(this).css({
                     background: "url('images/harimau.jpg')",
                     'background-position': 'center',
@@ -269,16 +358,22 @@
                     'background-repeat': 'no-repeat',
                     'background-position-y': '-5px',
                 });
-            });
-            $("div.harimau").click(function () {
-                $("<audio></audio>").attr({
-                    'src': 'audio/suara-harimau.mp3',
-                    'volume': 0.4,
-                    'autoplay': 'autoplay'
-                }).appendTo("div");
+
+                currentAudio = $("<audio></audio>")
+                    .on("ended", function () {
+                        $(this).remove();
+                        currentAudio = null;
+                    })
+                    .attr({
+                        src: "audio/suara-harimau.mp3",
+                        volume: 0.5,
+                        autoplay: "autoplay",
+                    })
+                    .appendTo("body")[0];
             });
         });
     </script>
+
 </body>
 
 </html>
